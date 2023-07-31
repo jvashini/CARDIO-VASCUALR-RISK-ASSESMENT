@@ -1,0 +1,32 @@
+<script>
+function calculation()
+{
+ age=parseInt(document.getElementById("age").value);
+ bp=parseInt(document.getElementById("bp").value);
+ tc=parseInt(document.getElementById("chol").value);
+ hdl=parseInt(document.getElementById("hdl").value);
+ bpm=parseFloat(document.getElementById("ch4").value);
+ smoker=parseFloat(document.getElementById("ch5").value);
+ dia=parseFloat(document.getElementById("ch6").value);
+ rf=(Math.log(age)*3.06117)+(Math.log(tc)*1.112370)-(Math.log(hdl)*0.93263)+(Math.log(bp)*bpm)+smoker+dia-23.9802;
+ risk=100*(1-0.88939**Math.exp(rf));
+ document.getElementById("output").value=risk;
+}
+</script>
+<center><b><h2>CARDIO-VASCUALR RISK ASSESMENT</h2><b></center>
+<center><b><h4>INPUT</b></h4></center><br>
+<center><b>Enter the age<input type=type id="age"><select id="ch1"><option>yr<option>mo</select><br><br>
+Systolic blood pressure<input type=num id="bp"><select id="ch"><option>pascal<option>atm<option>bar<option>cmH2O<option>cmHg
+                        <option>ftH2O<option>gm/sqcm<option>inH2O<option>inHg<option>kPa<option>mBar<option>mmHg<option>Psi
+						<option>torr</select><br><br>
+Total cholestrol<input type=num id="chol"><select id="ch2"><option>mg/dl<option>mmol/dl</select><br><br>
+HDL cholestrol<input type=num id="hdl"><select id="ch3"><option>mg/dl<option>mmol/dl</select><br><br>
+On blood pressure medication<select id="ch4"><option>1.93303<option>1.99881</select><br><br>
+Cigarret smoker<select id="ch5"><option>0<option>0.65451</select><br><br>
+Diabetes present<select id="ch6"><option>0<option>0.57367</select>
+<button onclick="calculation();">Submit</button><br><br>
+Result<input type=text id="output">
+</b></center>
+
+
+
